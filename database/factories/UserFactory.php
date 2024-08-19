@@ -56,7 +56,7 @@ class UserFactory extends Factory
         $faker->addProvider(new \Smknstd\FakerPicsumImages\FakerPicsumImagesProvider($faker));
 
         return $this->state(fn(array $attributes) => [
-            'profile_picture' => $faker->imageUrl(width: 800, height: 600),
+            'profile_picture' => $faker->imageUrl(width: 200, height: 200),
         ]);
     }
 }
