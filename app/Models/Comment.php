@@ -67,11 +67,11 @@ class Comment extends Model
     }
 
     /**
-     * The liked_users that belong to the Comment
+     * The users_liked that belong to the Comment
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function liked_users(): BelongsToMany
+    public function users_liked(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'user_likes_comment', 'comment_id', 'user_id');
     }
