@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class PaintBrand extends Model
@@ -18,4 +19,14 @@ class PaintBrand extends Model
         'name',
         'site_link'
     ];
+
+    /**
+     * Get all of the paints for the PaintBrand
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paints(): HasMany
+    {
+        return $this->hasMany(Paint::class);
+    }
 }
