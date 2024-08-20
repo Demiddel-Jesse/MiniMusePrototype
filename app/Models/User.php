@@ -64,6 +64,6 @@ class User extends Authenticatable
      */
     public function saved_collections(): BelongsToMany
     {
-        return $this->belongsToMany(Collection::class, 'user_saved_collection', 'user_id', 'collection_id');
+        return $this->belongsToMany(Collection::class, 'user_saved_collection', 'user_id', 'collection_id')->withPivot(['public']);
     }
 }

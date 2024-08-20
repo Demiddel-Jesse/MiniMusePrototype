@@ -27,7 +27,11 @@ class CollectionSeeder extends Seeder
         foreach (Collection::all() as $collection) {
             $users = User::inRandomOrder()->take(rand(1, 5))->pluck('id');
             $posts = Post::inRandomOrder()->take(rand(1, 5))->pluck('id');
-            $collection->users_saved()->attach($users);
+
+            foreach ($users as $user) {
+                $collection->users_saved()->attach($user, ['public' => random_int(0, 1)]);
+            }
+
             $collection->posts()->attach($posts);
         }
     }

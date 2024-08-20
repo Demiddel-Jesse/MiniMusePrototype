@@ -29,7 +29,7 @@ class Collection extends Model
      */
     public function users_saved(): BelongsToMany
     {
-        return $this->belongsToMany(User::class, 'user_saved_collection', 'collection_id', 'user_id');
+        return $this->belongsToMany(User::class, 'user_saved_collection', 'collection_id', 'user_id')->withPivot(['public']);
     }
 
     /**
