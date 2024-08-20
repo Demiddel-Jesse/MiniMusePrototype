@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Model;
 
 class Paint extends Model
@@ -41,5 +42,15 @@ class Paint extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * The paint_block_lines that belong to the Paint
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function paint_block_lines(): BelongsToMany
+    {
+        return $this->belongsToMany(PaintBlockLine::class, 'paint_block_line_has_paint', 'paint_id', 'paint_block_line_id')->withPivot(['amount']);
     }
 }
