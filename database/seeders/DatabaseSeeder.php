@@ -26,6 +26,7 @@ class DatabaseSeeder extends Seeder
         DB::table('paint_brands')->delete();
         DB::table('paints')->delete();
         DB::table('paint_blocks')->delete();
+        DB::table('paint_block_lines')->delete();
 
         $this->call([
             UserSeeder::class,
@@ -37,6 +38,7 @@ class DatabaseSeeder extends Seeder
             PaintBrandSeeder::class,
             PaintSeeder::class,
             PaintBlockSeeder::class,
+            PaintBlockLineSeeder::class,
         ]);
     }
 }

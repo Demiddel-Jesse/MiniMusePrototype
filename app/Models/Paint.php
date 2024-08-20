@@ -19,7 +19,8 @@ class Paint extends Model
         'name',
         'hexcode',
         'brand_id',
-        'site_link'
+        'site_link',
+        'created_by'
     ];
 
     /**

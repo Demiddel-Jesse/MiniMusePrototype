@@ -94,7 +94,7 @@ class User extends Authenticatable
      */
     public function paint_brands(): HasMany
     {
-        return $this->hasMany(PaintBrand::class);
+        return $this->hasMany(PaintBrand::class, 'created_by');
     }
 
     /**
@@ -104,7 +104,17 @@ class User extends Authenticatable
      */
     public function paints(): HasMany
     {
-        return $this->hasMany(Paint::class);
+        return $this->hasMany(Paint::class, 'created_by');
+    }
+
+    /**
+     * Get all of the paint_blocks for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paint_blocks(): HasMany
+    {
+        return $this->hasMany(PaintBlock::class, 'created_by');
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
 class PaintBlock extends Model
@@ -21,4 +22,14 @@ class PaintBlock extends Model
         'post_id',
         'created_by'
     ];
+
+    /**
+     * Get all of the paint_block_lines for the PaintBlock
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paint_block_lines(): HasMany
+    {
+        return $this->hasMany(PaintBlockLine::class);
+    }
 }
