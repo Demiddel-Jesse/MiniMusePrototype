@@ -22,7 +22,8 @@ class Comment extends Model
         'internal_name',
         'defined_name',
         'public',
-        'user_id'
+        'user_id',
+        'parent_id'
     ];
 
     /**
