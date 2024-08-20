@@ -85,4 +85,14 @@ class Post extends Model
     {
         return $this->belongsToMany(Tag::class, 'post_has_tag', 'post_id', 'tag_id');
     }
+
+    /**
+     * The paints that belong to the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function paints(): BelongsToMany
+    {
+        return $this->belongsToMany(Paint::class, 'post_has_paint', 'post_id', 'paint_id');
+    }
 }
