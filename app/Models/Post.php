@@ -23,6 +23,7 @@ class Post extends Model
         'published',
         'private',
         'user_id',
+        'NSFW',
     ];
 
     /**
