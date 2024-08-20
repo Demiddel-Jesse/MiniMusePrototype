@@ -19,12 +19,15 @@ class DatabaseSeeder extends Seeder
         DB::table('collections')->delete();
         DB::table('user_saved_collection')->delete();
         DB::table('collection_has_post')->delete();
+        DB::table('comments')->delete();
+        DB::table('user_likes_comment')->delete();
 
         $this->call([
             UserSeeder::class,
             PostSeeder::class,
             ImageSeeder::class,
             CollectionSeeder::class,
+            CommentSeeder::class,
         ]);
     }
 }
