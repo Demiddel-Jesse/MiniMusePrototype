@@ -21,15 +21,15 @@ class PaintFactory extends Factory
         return [
             'name' => fake()->name(),
             'hexcode' => fake()->safeHexColor(),
-            'brand_id' => PaintBrand::all()->random()->id,
+            'paint_brand_id' => PaintBrand::all()->random()->id,
             'created_by' => User::all()->random()->id,
         ];
     }
 
-    public function link(): static
+    public function add_link(): static
     {
         return $this->state(fn(array $attributes) => [
-            'site_link' => fake()->link(),
+            'site_link' => fake()->safeEmail(),
         ]);
     }
 }

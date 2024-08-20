@@ -14,6 +14,6 @@ class PaintSeeder extends Seeder
     public function run(): void
     {
         Paint::factory()->count(40)->create();
-        Paint::factory()->count(10)->link()->create();
+        Paint::factory()->count(10)->add_link()->create();
     }
 }

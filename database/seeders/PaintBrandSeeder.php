@@ -14,6 +14,6 @@ class PaintBrandSeeder extends Seeder
     public function run(): void
     {
         PaintBrand::factory()->count(4)->create();
-        PaintBrand::factory()->count(4)->link()->create();
+        PaintBrand::factory()->count(4)->add_link()->create();
     }
 }

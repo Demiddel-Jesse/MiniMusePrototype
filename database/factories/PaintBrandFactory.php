@@ -23,10 +23,10 @@ class PaintBrandFactory extends Factory
         ];
     }
 
-    public function link(): static
+    public function add_link(): static
     {
         return $this->state(fn(array $attributes) => [
-            'site_link' => fake()->link(),
+            'site_link' => fake()->safeEmail(),
         ]);
     }
 }
