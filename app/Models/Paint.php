@@ -63,4 +63,14 @@ class Paint extends Model
     {
         return $this->belongsToMany(Post::class, 'post_has_paint', 'paint_id', 'post_id');
     }
+
+    /**
+     * The paints that belong to the Paint
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function paints(): BelongsToMany
+    {
+        return $this->belongsToMany(Paint::class, 'paint_delta', 'paint_id_1', 'paint_id_2')->withPivot(['delta']);
+    }
 }
