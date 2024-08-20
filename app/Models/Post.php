@@ -75,4 +75,14 @@ class Post extends Model
     {
         return $this->belongsToMany(User::class, 'user_viewed_and_liked_post', 'post_id', 'user_id')->withPivot(['liked']);
     }
+
+    /**
+     * The tags that belong to the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function tags(): BelongsToMany
+    {
+        return $this->belongsToMany(Tag::class, 'post_has_tag', 'post_id', 'tag_id');
+    }
 }
