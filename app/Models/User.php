@@ -96,4 +96,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Comment::class, 'user_likes_comment', 'user_id', 'comment_id');
     }
+
+    /**
+     * The viewed_and_liked_posts that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function viewed_and_liked_posts(): BelongsToMany
+    {
+        return $this->belongsToMany(Post::class, 'user_viewed_and_liked_post', 'user_id', 'post_id')->withPivot(['liked']);
+    }
 }

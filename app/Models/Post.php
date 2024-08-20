@@ -64,4 +64,14 @@ class Post extends Model
     {
         return $this->belongsToMany(Collection::class, 'collection_has_post', 'post_id', 'collection_id');
     }
+
+    /**
+     * The users_liked_and_viewed that belong to the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function users_liked_and_viewed(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_liked_and_viewed_post', 'post_id', 'user_id')->withPivot(['liked']);
+    }
 }
