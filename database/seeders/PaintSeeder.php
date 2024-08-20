@@ -14,8 +14,8 @@ class PaintSeeder extends Seeder
      */
     public function run(): void
     {
-        Paint::factory()->count(40)->create();
-        Paint::factory()->count(10)->add_link()->create();
+        Paint::factory()->count(10)->create();
+        Paint::factory()->count(4)->add_link()->create();
 
         foreach (Post::all() as $post) {
             $paints = Paint::inRandomOrder()->take(rand(1, 5))->pluck('id');
