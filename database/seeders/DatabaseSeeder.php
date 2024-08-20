@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
         DB::table('user_likes_comment')->delete();
         DB::table('tags')->delete();
         DB::table('post_has_tag')->delete();
+        DB::table('paint_brands')->delete();
 
         $this->call([
             UserSeeder::class,
@@ -31,6 +32,7 @@ class DatabaseSeeder extends Seeder
             CollectionSeeder::class,
             CommentSeeder::class,
             TagSeeder::class,
+            PaintBrandSeeder::class,
         ]);
     }
 }
