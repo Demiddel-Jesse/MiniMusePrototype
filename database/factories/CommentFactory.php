@@ -18,12 +18,12 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
-        $random_int = random_int(0, 200);
+        $random_int = random_int(0, 40);
 
-        if ($random_int <= 100) {
+        if ($random_int <= 20) {
             $random_int = null;
         } else {
-            $random_int -= 100;
+            $random_int -= 20;
         };
 
         return [

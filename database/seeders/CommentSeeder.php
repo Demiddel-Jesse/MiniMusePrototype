@@ -14,7 +14,7 @@ class CommentSeeder extends Seeder
      */
     public function run(): void
     {
-        Comment::factory()->count(100)->create();
+        Comment::factory()->count(20)->create();
 
         foreach (Comment::all() as $comment) {
             $users = User::inRandomOrder()->take(rand(1, 10))->pluck('id');
