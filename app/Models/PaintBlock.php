@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
 
@@ -31,5 +32,15 @@ class PaintBlock extends Model
     public function paint_block_lines(): HasMany
     {
         return $this->hasMany(PaintBlockLine::class);
+    }
+
+    /**
+     * The user_votes that belong to the PaintBlock
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function user_votes(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_voted_paint_block', 'paint_block_id', 'user_id');
     }
 }

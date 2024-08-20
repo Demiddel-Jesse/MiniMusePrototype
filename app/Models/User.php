@@ -146,4 +146,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Post::class, 'user_viewed_and_liked_post', 'user_id', 'post_id')->withPivot(['liked']);
     }
+
+    /**
+     * The paint_block_votes that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function paint_block_votes(): BelongsToMany
+    {
+        return $this->belongsToMany(PaintBlock::class, 'user_voted_paint_block', 'user_id', 'paint_block_id');
+    }
 }
