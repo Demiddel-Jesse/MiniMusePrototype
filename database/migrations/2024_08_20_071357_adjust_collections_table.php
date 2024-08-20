@@ -11,8 +11,7 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::table('collections', function (Blueprint $table) {
-            $table->dropColumn('internal_name');
-            $table->uuid('internal_name')->unique();
+            $table->uuid('internal_name')->change();
         });
     }
 
@@ -22,8 +21,7 @@ return new class extends Migration {
     public function down(): void
     {
         Schema::table('collections', function (Blueprint $table) {
-            $table->dropColumn('internal_name');
-            $table->string('internal_name')->unique();
+            $table->string('internal_name')->change();
         });
     }
 };
