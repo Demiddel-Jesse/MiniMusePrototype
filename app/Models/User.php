@@ -68,6 +68,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of the tags for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function tags(): HasMany
+    {
+        return $this->hasMany(Tag::class);
+    }
+
+    /**
      * Get all of the comments for the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
