@@ -58,6 +58,26 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of the collections for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function collections(): HasMany
+    {
+        return $this->hasMany(Collection::class);
+    }
+
+    /**
+     * Get all of the comments for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
      * The saved_collections that belong to the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

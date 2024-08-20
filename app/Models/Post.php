@@ -36,6 +36,16 @@ class Post extends Model
     }
 
     /**
+     * Get all of the comments for the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function comments(): HasMany
+    {
+        return $this->hasMany(Comment::class);
+    }
+
+    /**
      * Get the user that owns the Post
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
