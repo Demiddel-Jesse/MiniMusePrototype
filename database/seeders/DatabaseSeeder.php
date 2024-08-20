@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
         DB::table('collection_has_post')->delete();
         DB::table('comments')->delete();
         DB::table('user_likes_comment')->delete();
+        DB::table('tags')->delete();
+        DB::table('post_has_tag')->delete();
 
         $this->call([
             UserSeeder::class,
@@ -28,6 +30,7 @@ class DatabaseSeeder extends Seeder
             ImageSeeder::class,
             CollectionSeeder::class,
             CommentSeeder::class,
+            TagSeeder::class,
         ]);
     }
 }
