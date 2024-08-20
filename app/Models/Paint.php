@@ -31,4 +31,14 @@ class Paint extends Model
     {
         return $this->belongsTo(PaintBrand::class);
     }
+
+    /**
+     * Get the user that owns the Paint
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
+    }
 }

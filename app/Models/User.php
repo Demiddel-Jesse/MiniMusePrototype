@@ -88,6 +88,26 @@ class User extends Authenticatable
     }
 
     /**
+     * Get all of the paint_brands for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paint_brands(): HasMany
+    {
+        return $this->hasMany(PaintBrand::class);
+    }
+
+    /**
+     * Get all of the paints for the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paints(): HasMany
+    {
+        return $this->hasMany(Paint::class);
+    }
+
+    /**
      * The saved_collections that belong to the User
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
