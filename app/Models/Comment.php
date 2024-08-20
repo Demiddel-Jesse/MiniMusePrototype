@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Model;
@@ -62,5 +63,15 @@ class Comment extends Model
     public function comment(): BelongsTo
     {
         return $this->belongsTo(Comment::class, 'parent_id');
+    }
+
+    /**
+     * The liked_users that belong to the Comment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function liked_users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'user_likes_comment', 'comment_id', 'user_id');
     }
 }

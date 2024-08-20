@@ -86,4 +86,14 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Collection::class, 'user_saved_collection', 'user_id', 'collection_id')->withPivot(['public']);
     }
+
+    /**
+     * The liked_comments that belong to the User
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function liked_comments(): BelongsToMany
+    {
+        return $this->belongsToMany(Comment::class, 'user_likes_comment', 'user_id', 'comment_id');
+    }
 }
