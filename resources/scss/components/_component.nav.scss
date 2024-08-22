@@ -1,0 +1,42 @@
+@use "../tools/tools.media-querries" as mq;
+
+.c-nav {
+    &__links {
+        @include mq.down(tl) {
+            display: none;
+        }
+    }
+
+    &__hamburger {
+        display: inline-flex;
+        justify-items: center;
+
+        transition: all ease-in-out 150ms;
+
+        @include mq.up(tl) {
+            display: none;
+        }
+    }
+
+    &__primary {
+    }
+
+    &__mobile {
+        display: none;
+
+        @include mq.up(tl) {
+            display: none;
+        }
+
+        &--hidden {
+            display: hidden;
+        }
+        &--block {
+            display: block;
+
+            @include mq.up(tl) {
+                display: none;
+            }
+        }
+    }
+}
