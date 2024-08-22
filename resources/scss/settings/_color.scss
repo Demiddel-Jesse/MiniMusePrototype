@@ -1,2 +1,19 @@
 :root {
+    --text-dark: #fafafa;
+    --background-dark: #161616;
+    --primary-dark: #c30f0f;
+    --secondary-dark: #000000;
+    --accent-dark: #ffffff;
+
+    --white: #ffffff;
+    --black: #000000;
 }
+
+$text-dark: var(--text-dark);
+$background-dark: var(--) var(--background-dark);
+$primary-dark: var(--primary-dark);
+$secondary-dark: var(--secondary-dark);
+$accent-dark: var(--accent-dark);
+
+$white: var(--white);
+$black: var(--black);
