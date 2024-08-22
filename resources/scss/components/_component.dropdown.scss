@@ -1,0 +1,52 @@
+.c-dropdown {
+    position: relative;
+
+    &__align {
+        &--left {
+            inset-inline-start: 0;
+            transform-origin: top left;
+        }
+        &--top {
+            transform-origin: top;
+        }
+        &--right {
+        }
+        &--default {
+            inset-inline-end: 0;
+            transform-origin: top right;
+        }
+    }
+
+    &__transition {
+        &--enter {
+            transition: all 200ms ease-out;
+        }
+        &--enter-start {
+            opacity: 0;
+            scale: 95%;
+        }
+        &--enter-end {
+            opacity: 1;
+            scale: 100%;
+        }
+        &--leave {
+            transition: all 75ms ease-in;
+        }
+        &--leave-start {
+            opacity: 1;
+            scale: 100%;
+        }
+        &--leave-end {
+            opacity: 0;
+            scale: 95%;
+        }
+    }
+
+    &__content {
+        position: absolute;
+        z-index: 50;
+        margin-top: 0.5rem;
+
+        width: fit-content;
+    }
+}

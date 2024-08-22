@@ -36,7 +36,8 @@
         </x-slot>
 
         <x-slot name="content">
-            <x-dropdown-link :href="route('profile.edit')">
+            contents <x-dropdown-link :href="route('profile.edit')">
+
                 {{ __('Profile') }}
             </x-dropdown-link>
 
@@ -101,15 +102,44 @@
 
 <!-- new nav -->
 <nav x-data="{open:false}" class="c-nav">
-    @if (Route::has('login'))
-    @auth
-    <a href="{{ url('/dashboard') }}" class="">Dashboard</a>
-    @else
-    <a href="{{ route('login') }}" class="c-button c-button__primary">Login</a>
-    @if (Route::has('register'))
-    <a href="{{ route('register') }}" class="c-button c-button__secondary">Register</a>
-    @endif
-    @endauth
-    @endif
+    <div class="c-nav__logo">
+        <a href="{{ route('home') }}">
+            <img src="favicon.ico" alt="logo">
+        </a>
+    </div>
+    <div class="c-nav__links">
+        <div class="c-nav__links--left">
+            <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
+                {{ __('Home') }}
+            </x-nav-link>
+        </div>
+        <div class="c-nav__links--right">
+            @if (Route::has('login'))
+            @auth
+            <x-dropdown align="left">
+                <x-slot name="trigger">
+                    <img src="{{ auth()->user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
+                </x-slot>
+                <x-slot name="content">
+                    <x-dropdown-link :href="route('dashboard')" class="">
+                        {{ __('Dashboard') }}
+                    </x-dropdown-link>
 
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="c-button c-button__primary">
+                            {{ __('Log Out') }}
+                        </x-dropdown-link>
+                    </form>
+                </x-slot>
+            </x-dropdown>
+            @else
+            <a href="{{ route('login') }}" class="c-button c-button__primary">Login</a>
+            @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="c-button c-button__secondary">Register</a>
+            @endif
+            @endauth
+            @endif
+        </div>
+    </div>
 </nav>

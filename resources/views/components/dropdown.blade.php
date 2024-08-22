@@ -1,42 +1,28 @@
-@props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white dark:bg-gray-700'])
+@props(['align' => 'right'])
 
 @php
 switch ($align) {
-    case 'left':
-        $alignmentClasses = 'ltr:origin-top-left rtl:origin-top-right start-0';
-        break;
-    case 'top':
-        $alignmentClasses = 'origin-top';
-        break;
-    case 'right':
-    default:
-        $alignmentClasses = 'ltr:origin-top-right rtl:origin-top-left end-0';
-        break;
-}
-
-switch ($width) {
-    case '48':
-        $width = 'w-48';
-        break;
+case 'left':
+$alignmentClasses = 'c-dropdown__align--left';
+break;
+case 'top':
+$alignmentClasses = 'c-dropdown__align--top';
+break;
+case 'right':
+default:
+$alignmentClasses = 'c-dropdown__align--default';
+break;
 }
 @endphp
 
-<div class="relative" x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false">
+<div x-data="{ open: false }" @click.outside="open = false" @close.stop="open = false" class="c-dropdown">
     <div @click="open = ! open">
         {{ $trigger }}
     </div>
 
-    <div x-show="open"
-            x-transition:enter="transition ease-out duration-200"
-            x-transition:enter-start="opacity-0 scale-95"
-            x-transition:enter-end="opacity-100 scale-100"
-            x-transition:leave="transition ease-in duration-75"
-            x-transition:leave-start="opacity-100 scale-100"
-            x-transition:leave-end="opacity-0 scale-95"
-            class="absolute z-50 mt-2 {{ $width }} rounded-md shadow-lg {{ $alignmentClasses }}"
-            style="display: none;"
-            @click="open = false">
-        <div class="rounded-md ring-1 ring-black ring-opacity-5 {{ $contentClasses }}">
+    <div x-show="open" x-transition:enter="c-dropdown__transition--enter" x-transition:enter-start="c-dropdown__transition--enter-start" x-transition:enter-end="c-dropdown__transition--enter-end" x-transition:leave="c-dropdown__transition--leave" x-transition:leave-start="c-dropdown__transition--leave-start" x-transition:leave-end="c-dropdown__transition--leave-end" class="c-dropdown__content {{ $alignmentClasses }} " style="display: none;" @click="open = false">
+
+        <div class="">
             {{ $content }}
         </div>
     </div>
