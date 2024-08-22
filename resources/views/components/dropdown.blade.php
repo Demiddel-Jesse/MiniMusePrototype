@@ -22,8 +22,7 @@ break;
 
     <div x-show="open" x-transition:enter="c-dropdown__transition--enter" x-transition:enter-start="c-dropdown__transition--enter-start" x-transition:enter-end="c-dropdown__transition--enter-end" x-transition:leave="c-dropdown__transition--leave" x-transition:leave-start="c-dropdown__transition--leave-start" x-transition:leave-end="c-dropdown__transition--leave-end" class="c-dropdown__content {{ $alignmentClasses }} " style="display: none;" @click="open = false">
 
-        <div class="">
-            {{ $content }}
-        </div>
+
+        {{ $content }}
     </div>
 </div>

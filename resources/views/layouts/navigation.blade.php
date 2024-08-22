@@ -14,7 +14,7 @@
             <div class="c-nav__links--right">
                 @if (Route::has('login'))
                 @auth
-                <x-dropdown align="left">
+                <x-dropdown>
                     <x-slot name="trigger">
                         <img src="{{ Auth::user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
                     </x-slot>
