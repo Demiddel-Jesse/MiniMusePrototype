@@ -14,23 +14,23 @@
             <div class="c-nav__links--right">
                 @if (Route::has('login'))
                 @auth
-                <x-dropdown>
+                <x-dropdown-profile>
                     <x-slot name="trigger">
                         <img src="{{ Auth::user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
                     </x-slot>
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('dashboard')" class="">
+                        <x-dropdown-profile-link :href="route('dashboard')" class="">
                             {{ __('Dashboard') }}
-                        </x-dropdown-link>
+                        </x-dropdown-profile-link>
 
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-                            <x-dropdown-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="c-button c-button__primary">
+                            <x-dropdown-profile-link :href="route('logout')" onclick="event.preventDefault(); this.closest('form').submit();" class="c-button c-button__primary">
                                 {{ __('Log Out') }}
-                            </x-dropdown-link>
+                            </x-dropdown-profile-link>
                         </form>
                     </x-slot>
-                </x-dropdown>
+                </x-dropdown-profile>
                 @else
                 <a href="{{ route('login') }}" class="c-button c-button__primary">Login</a>
                 @if (Route::has('register'))
