@@ -7,6 +7,10 @@
 
     transition: all 250ms ease-out;
 
+    text-decoration: none;
+    display: inline-block;
+    color: color.$text;
+
     &__primary {
         background-color: color.$primary;
         border: none;

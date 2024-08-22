@@ -1,6 +1,6 @@
 <!-- Old nav -->
-{{--
-<nav x-data="{ open: false }" class="">
+
+{{-- <nav x-data="{ open: false }" class="">
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
@@ -101,10 +101,15 @@
 
 <!-- new nav -->
 <nav x-data="{open:false}" class="c-nav">
-    <x-primary-button>
-        Login
-    </x-primary-button>
-    <x-secondary-button>
-        Register
-    </x-secondary-button>
+    @if (Route::has('login'))
+    @auth
+    <a href="{{ url('/dashboard') }}" class="">Dashboard</a>
+    @else
+    <a href="{{ route('login') }}" class="c-button c-button__primary">Login</a>
+    @if (Route::has('register'))
+    <a href="{{ route('register') }}" class="c-button c-button__secondary">Register</a>
+    @endif
+    @endauth
+    @endif
+
 </nav>
