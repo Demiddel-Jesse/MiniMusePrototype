@@ -1,7 +1,53 @@
 @use "../tools/tools.media-queries" as mq;
+@use "../settings/color" as color;
 
 .c-nav {
+    position: relative;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    width: 100%;
+    padding-bottom: 12px;
+
+    margin-top: 1rem;
+
+    border-bottom: 1px solid color.$accent;
+
+    @include mq.down(tl) {
+        overflow: hidden;
+    }
+
+    &__logo {
+        display: flex;
+
+        align-items: center;
+
+        padding-left: 2rem;
+
+        a {
+            display: inline-block;
+        }
+    }
+
+    &__link {
+        color: color.$text;
+        text-decoration: none;
+
+        &--active {
+            color: color.$primary;
+            text-decoration: underline;
+        }
+    }
+
     &__links {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        width: 100%;
+        padding: 0 2rem;
+
         @include mq.down(tl) {
             display: none;
         }
@@ -13,16 +59,92 @@
 
         transition: all ease-in-out 150ms;
 
+        button {
+            border: none;
+            background: transparent;
+        }
+
+        &-line {
+            content: " ";
+
+            width: 40px;
+            height: 8px;
+            margin: 6px;
+
+            border-radius: 25px;
+
+            background-color: color.$accent;
+            transition: all 250ms ease-in-out;
+            transform-origin: center right;
+
+            &--top {
+                transform: rotate(-45deg);
+                background-color: color.$primary;
+            }
+            &--middle {
+                opacity: 0;
+                transition-duration: 100ms;
+            }
+            &--bottom {
+                transform: rotate(45deg);
+
+                background-color: color.$primary;
+            }
+        }
+
+        &--hidden {
+            display: none;
+        }
+
+        &--inline-flex {
+            display: inline-flex;
+        }
+
         @include mq.up(tl) {
             display: none;
+        }
+
+        @include mq.down(tl) {
+            padding-right: 2rem;
         }
     }
 
     &__primary {
+        display: flex;
+        width: 100%;
+
+        @include mq.down(tl) {
+            justify-content: space-between;
+
+            max-height: 80px;
+        }
     }
 
     &__mobile {
+        position: relative;
+
         display: none;
+
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+
+        margin-top: 1rem;
+
+        > a {
+            width: 100%;
+            text-align: center;
+            padding: 0.5rem;
+            margin: 0.25rem;
+
+            &:is(.c-nav__link--active) {
+                background-color: color.$gray-3;
+            }
+        }
+
+        *:not(a) {
+            margin: 0.5rem;
+        }
 
         @include mq.up(tl) {
             display: none;
@@ -32,7 +154,7 @@
             display: hidden;
         }
         &--block {
-            display: block;
+            display: flex;
 
             @include mq.up(tl) {
                 display: none;

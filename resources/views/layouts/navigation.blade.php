@@ -44,21 +44,22 @@
         <!-- Hamburger -->
         <div class="c-nav__hamburger">
             <button @click="open = ! open" class="">
-                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                    <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                    <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                <div :class="{'c-nav__hamburger-line--top': open, '': ! open}" class="c-nav__hamburger-line "></div>
+                <div :class="{'c-nav__hamburger-line--middle': open, '': ! open}" class="c-nav__hamburger-line "></div>
+                <div :class="{'c-nav__hamburger-line--bottom': open, '': ! open}" class="c-nav__hamburger-line "></div>
             </button>
         </div>
     </div>
 
     <div class="c-nav__mobile" :class="{'c-nav__mobile--block': open, 'c-nav__mobile--hidden': ! open}">
+        @auth
+        <img src="{{ Auth::user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
+        @endauth
         <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
             {{ __('Home') }}
         </x-nav-link>
         @if (Route::has('login'))
         @auth
-        <img src="{{ Auth::user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
 
         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
             {{ __('Dashboard') }}
