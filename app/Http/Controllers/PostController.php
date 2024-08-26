@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use App\Models\TagType;
 use App\Models\User;
 use Illuminate\Http\Request;
+use DB;
 
 class PostController extends Controller
 {
@@ -38,7 +40,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return view('post.show', ['post' => $post]);
+        $tagTypes = TagType::all();
+
+        return view('post.show', ['post' => $post, 'tagTypes' => $tagTypes]);
     }
 
     /**
