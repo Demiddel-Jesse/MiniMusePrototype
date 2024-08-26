@@ -61,6 +61,9 @@
         <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
             {{ __('Home') }}
         </x-nav-link>
+        <x-nav-link :href="route('gallery')" :active="request()->routeIs('gallery')">
+            {{ __('Gallery') }}
+        </x-nav-link>
         @if (Route::has('login'))
         @auth
 
