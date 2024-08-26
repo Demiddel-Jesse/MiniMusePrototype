@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\TagType;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,7 +20,7 @@ class TagFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'type' => fake()->name(),
+            'tag_type_id' => TagType::all()->where('name', '!=', 'color')->random()->id,
             'created_by' => User::all()->random()->id,
         ];
     }
@@ -28,7 +29,7 @@ class TagFactory extends Factory
     {
         return $this->state(fn(array $attributes) => [
             'name' => fake()->colorName(),
-            'type' => 'color',
+            'tag_type_id' => TagType::where('name', '=', 'color')->get()[0]->id,
             'hexcode' => fake()->safeHexColor()
         ]);
     }

@@ -18,7 +18,7 @@ class Tag extends Model
      */
     protected $fillable = [
         'name',
-        'type',
+        'tag_type_id',
         'created_by',
         'hexcode'
     ];
@@ -31,6 +31,16 @@ class Tag extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Get the tag_type that owns the Tag
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function tag_type(): BelongsTo
+    {
+        return $this->belongsTo(TagType::class);
     }
 
     /**
