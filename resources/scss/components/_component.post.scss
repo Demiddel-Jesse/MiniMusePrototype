@@ -6,6 +6,7 @@
 
     &__images {
         max-width: 60%;
+        margin: 0 0 0 2rem;
     }
 
     &__imgWrapper {
@@ -17,8 +18,8 @@
     }
 
     &__text {
-        max-width: 30%;
+        max-width: 40%;
 
-        padding: 0 0 0 2rem;
+        margin: 0 2rem;
     }
 }
