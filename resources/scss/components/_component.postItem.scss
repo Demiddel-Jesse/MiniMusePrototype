@@ -1,5 +1,8 @@
 @use "../settings/color" as color;
 
+$post-max-width: 205px;
+$post-max-height: 205px;
+
 .c-postItem {
     border-radius: 10px;
 
@@ -8,8 +11,8 @@
     width: fit-content;
     height: fit-content;
 
-    max-width: 250px;
-    max-height: 250px;
+    max-width: $post-max-width;
+    max-height: $post-max-height;
 
     position: relative;
 
@@ -18,7 +21,7 @@
     color: color.$text;
 
     &__img {
-        max-width: 250px;
+        max-width: $post-max-width;
 
         border-radius: inherit;
     }
