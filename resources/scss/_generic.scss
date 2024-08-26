@@ -6,3 +6,10 @@ body {
     background-color: color.$background;
     color: color.$text;
 }
+
+main,
+header,
+footer {
+    margin: auto;
+    max-width: 1280px;
+}
