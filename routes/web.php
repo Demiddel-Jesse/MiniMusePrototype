@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    $posts = Post::inRandomOrder()->limit(20)->get();
+    $posts = Post::inRandomOrder()->limit(18)->get();
     return view(
         'home', ['posts' => $posts]
     );
@@ -26,9 +27,8 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/gallery/{post}', function () {
-    return view('post');
-})->name('post');
+Route::get('/gallery', [PostController::class, 'index']);
+Route::get('/gallery/{post}', [PostController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
