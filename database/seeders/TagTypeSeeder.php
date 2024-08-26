@@ -15,12 +15,12 @@ class TagTypeSeeder extends Seeder
     {
         $tagTypes = [
             'standard',
+            'style',
             'color',
+            'color scheme',
             'unit',
             'faction',
             'franchise',
-            'color_scheme',
-            'style',
         ];
 
         foreach ($tagTypes as $tagType) {
