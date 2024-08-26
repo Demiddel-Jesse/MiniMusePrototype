@@ -10,6 +10,9 @@
                 <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
                     {{ __('Home') }}
                 </x-nav-link>
+                <x-nav-link :href="route('gallery')" :active="request()->routeIs('gallery')">
+                    {{ __('Gallery') }}
+                </x-nav-link>
             </div>
             <div class="c-nav__links--right">
                 @if (Route::has('login'))

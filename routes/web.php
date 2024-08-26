@@ -27,7 +27,7 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/gallery', [PostController::class, 'index']);
+Route::get('/gallery', [PostController::class, 'index'])->name('gallery');
 Route::get('/gallery/{post}', [PostController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
