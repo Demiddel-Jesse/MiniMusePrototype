@@ -1,0 +1,24 @@
+.c-post {
+    display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: center;
+
+    &__images {
+        max-width: 60%;
+    }
+
+    &__imgWrapper {
+        max-width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__text {
+        max-width: 30%;
+
+        padding: 0 0 0 2rem;
+    }
+}
