@@ -10,10 +10,10 @@ $pfp = asset('images/placeholder.jpg');
 }
 @endphp
 
-<div class="{{ $classes }}">
+<a href="/{{ $user->username }}" class="{{ $classes }}">
     <img src="{{ $pfp }}" alt="{{ $user->username }} Profile Picture">
     <div class="c-profileSmall__content">
         <p class="c-profileSmall__username">{{ $user->username }}</p>
         {{ $slot }}
     </div>
-</div>
+</a>
