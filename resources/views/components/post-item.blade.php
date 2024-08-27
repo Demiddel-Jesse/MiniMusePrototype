@@ -1,13 +1,12 @@
 @props(['thumbnail' => $thumbnail, 'likes' => $likes, 'views' => $views, 'title' => $title, 'id' => $id])
 
-@if(is_null($thumbnail))
 @php
-$thumbnail = '../images/placeholder.jpg'
+if(is_null($thumbnail)){
+$thumbnail = asset('images/placeholder.jpg');
+}
 @endphp
-@endif
 
 <a href="/gallery/{{ $id }}">
-
     <div class="c-postItem">
         <img class="c-postItem__img" src="{{ $thumbnail}}" alt="{{ $title }}">
         <div class="c-postItem__bar">

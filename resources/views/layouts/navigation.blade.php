@@ -2,7 +2,7 @@
     <div class="c-nav__primary">
         <div class="c-nav__logo">
             <a href="{{ route('home') }}">
-                <img src="favicon.ico" alt="logo">
+                <img src="{{ asset('favicon.ico') }}" alt="logo">
             </a>
         </div>
         <div class="c-nav__links">
