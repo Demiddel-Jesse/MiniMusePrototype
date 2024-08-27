@@ -8,9 +8,10 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
-    <!-- Scripts -->
-    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
     @livewireStyles
+    <!-- Scripts -->
+
+    @vite(['resources/scss/app.scss', 'resources/js/app.js'])
 </head>
 <body>
     @include('layouts.navigation')

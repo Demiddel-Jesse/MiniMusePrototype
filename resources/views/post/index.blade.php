@@ -1,9 +1,3 @@
 <x-app-layout>
-    <section class="c-gallery__posts">
-        @foreach ($posts as $post)
-        <x-post-item :post="$post">
-        </x-post-item>
-        @endforeach
-        {{ $posts->links() }}
-    </section>
+    <livewire:show-posts></livewire:show-posts>
 </x-app-layout>

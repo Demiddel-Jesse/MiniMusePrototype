@@ -16,8 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        $posts = Post::where('published', '=', 1)->where('NSFW', '=', '0')->latest()->paginate(10);
-        return view('post.index', ['posts' => $posts]);
+        return view('post.index');
     }
 
     /**
