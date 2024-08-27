@@ -1,9 +1,12 @@
-@props(['thumbnail' => $thumbnail, 'likes' => $likes, 'views' => $views, 'title' => $title, 'id' => $id])
-
 @php
+$thumbnail = $post->thumbnail;
 if(is_null($thumbnail)){
 $thumbnail = asset('images/placeholder.jpg');
 }
+$likes = $post->likes;
+$views = $post->views_total;
+$id = $post->id;
+$title = $post->title;
 @endphp
 
 <a href="/gallery/{{ $id }}">

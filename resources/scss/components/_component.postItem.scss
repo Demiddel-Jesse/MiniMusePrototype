@@ -8,8 +8,8 @@ $post-max-height: 205px;
 
     // outline: 1px solid white;
 
-    width: fit-content;
-    height: fit-content;
+    width: $post-max-width;
+    height: $post-max-height;
 
     max-width: $post-max-width;
     max-height: $post-max-height;
