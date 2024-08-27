@@ -1,0 +1,22 @@
+@use "../settings/color" as color;
+
+.c-comment {
+    padding: 1rem 0;
+
+    position: relative;
+
+    &__subComments {
+        margin-left: 2rem;
+
+        position: relative;
+
+        &::before {
+            position: absolute;
+            content: " ";
+            left: -1rem;
+            width: 2px;
+            height: 100%;
+            background-color: color.$gray-10;
+        }
+    }
+}
