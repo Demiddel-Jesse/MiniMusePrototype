@@ -1,0 +1,47 @@
+@use "../settings/color" as color;
+
+.c-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: fit-content;
+
+    padding: 8px 26px;
+    margin: 1rem 1rem 1rem 0;
+
+    outline: color.$primary 1px solid;
+    border-radius: 50px;
+
+    border: none;
+    background-color: transparent;
+
+    font-size: 14px;
+
+    transition: all 250ms ease-in-out;
+
+    .c-tag__check {
+        width: 0;
+        opacity: 0;
+        visibility: hidden;
+        stroke: color.$white;
+        fill: none;
+        transition: all 250ms ease-in-out;
+    }
+
+    &:hover,
+    &--active {
+        padding: 8px 16px;
+
+        .c-tag__check {
+            width: 14px;
+            opacity: 1;
+            visibility: visible;
+            margin-left: 6px;
+        }
+    }
+
+    &--active {
+        background-color: color.$primary;
+    }
+}

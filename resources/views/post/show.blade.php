@@ -22,7 +22,9 @@
             @if(isset($tagsByType[$tagType->id]))
             <h3>{{ $tagType->name }}</h3>
             @foreach($tagsByType[$tagType->id] as $tag)
-            <p>{{ $tag->name }}</p>
+            <x-tag :active="true">
+                {{ $tag->name }}
+            </x-tag>
             @endforeach
             @endif
             @endforeach
