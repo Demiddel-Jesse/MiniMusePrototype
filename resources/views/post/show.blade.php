@@ -13,7 +13,6 @@
                     {{ get_time_diff_string($post->created_at) }}
                     ago
                 </x-profile-small>
-
             </div>
             <div class="c-post__numbers"></div>
             <p>{{ $post->description }}</p>
@@ -26,7 +25,7 @@
             @if(isset($tagsByType[$tagType->id]))
             <h3>{{ $tagType->name }}</h3>
             @foreach($tagsByType[$tagType->id] as $tag)
-            <x-tag :active="true">
+            <x-tag :post="true">
                 {{ $tag->name }}
             </x-tag>
             @endforeach

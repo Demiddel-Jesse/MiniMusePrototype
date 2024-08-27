@@ -31,17 +31,24 @@
 
     &:hover,
     &--active {
-        padding: 8px 16px;
+        &:not(.c-tag--post) {
+            padding: 8px 16px;
 
-        .c-tag__check {
-            width: 14px;
-            opacity: 1;
-            visibility: visible;
-            margin-left: 6px;
+            .c-tag__check {
+                width: 14px;
+                opacity: 1;
+                visibility: visible;
+                margin-left: 6px;
+            }
         }
     }
 
+    &--post,
     &--active {
         background-color: color.$primary;
+    }
+
+    &--post {
+        padding: 8px 16px;
     }
 }

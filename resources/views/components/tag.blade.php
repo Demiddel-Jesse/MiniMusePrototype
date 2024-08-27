@@ -1,9 +1,9 @@
-@props(['active'=>$active])
-
 @php
 $classes = 'c-tag';
-if($active == true){
+if(isset($active)){
 $classes = 'c-tag c-tag--active';
+} else if (isset($post)) {
+$classes = 'c-tag c-tag--post';
 }
 @endphp
 
