@@ -10,6 +10,7 @@
 
     <!-- Scripts -->
     @vite(['resources/scss/app.scss', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 <body>
     @include('layouts.navigation')
@@ -27,5 +28,6 @@
     <main>
         {{ $slot }}
     </main>
+    @livewireScripts
 </body>
 </html>
