@@ -15,9 +15,9 @@ class PostSeeder extends Seeder
     public function run(): void
     {
         Post::factory()->count(2)->create();
-        Post::factory()->count(2)->published()->public()->create();
-        Post::factory()->count(2)->published()->create();
-        Post::factory()->count(20)->published()->public()->thumbnail()->create();
+        Post::factory()->count(7)->published()->public()->create();
+        Post::factory()->count(4)->published()->create();
+        Post::factory()->count(50)->published()->public()->thumbnail()->create();
 
         foreach (Post::all() as $post) {
             $users = User::inRandomOrder()->take(rand(1, 10))->pluck('id');
