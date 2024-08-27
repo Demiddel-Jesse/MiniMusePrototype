@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\TagType;
 use App\Models\User;
@@ -42,7 +43,9 @@ class PostController extends Controller
     {
         $tagTypes = TagType::all();
 
-        return view('post.show', ['post' => $post, 'tagTypes' => $tagTypes]);
+        $comments = Comment::with('user')->with('comments')->where('post_id', $post->id)->where('parent_id', '=', null)->get();
+
+        return view('post.show', ['post' => $post, 'tagTypes' => $tagTypes, 'comments' => $comments]);
     }
 
     /**
