@@ -54,7 +54,8 @@
         </div>
     </div>
 
-    <div class="c-nav__mobile" :class="{'c-nav__mobile--block': open, 'c-nav__mobile--hidden': ! open}">
+    <div class="c-nav__mobile" :class="{'c-nav__mobile--block': open, '': ! open}">
+
         @auth
         <img src="{{ Auth::user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
         @endauth
