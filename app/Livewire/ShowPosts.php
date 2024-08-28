@@ -10,12 +10,7 @@ class ShowPosts extends Component
 {
     use WithPagination;
 
-    public $amount = 30;
-
-    public function loadMore()
-    {
-        $this->amount += 20;
-    }
+    public $amount = 18;
 
     public function render()
     {

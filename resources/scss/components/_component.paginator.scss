@@ -1,4 +1,5 @@
 @use "../tools/tools.media-queries" as mq;
+@use "../settings/color" as color;
 
 .c-paginator {
     display: flex;
@@ -29,8 +30,12 @@
         align-items: center;
         padding: 0.5rem;
 
+        cursor: pointer;
+
         &--firstPage {
             @extend .c-paginator__arrowLeft;
+
+            cursor: default;
         }
 
         > span {
@@ -48,7 +53,7 @@
         @extend .c-paginator__arrowLeft;
 
         &--lastPage {
-            @extend .c-paginator__arrowRight;
+            @extend .c-paginator__arrowLeft--firstPage;
         }
     }
 
@@ -64,8 +69,14 @@
 
         text-decoration: none;
 
+        cursor: pointer;
+
         &--currentPage {
             @extend .c-paginator__link;
+
+            color: color.$primary;
+
+            cursor: default;
         }
     }
 

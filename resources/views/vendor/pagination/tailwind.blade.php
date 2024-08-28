@@ -34,8 +34,7 @@
                 <span class="c-paginator__link--currentPage">{{ $page }}</span>
             </span>
             @else
-            <a wire:click='' wire:loading.attr="disabled" class="c-paginator__link" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
-
+            <a wire:click="gotoPage({{ $page }}, '{{ $paginator->getPageName() }}')" wire:loading.attr="disabled" class="c-paginator__link" aria-label="{{ __('Go to page :page', ['page' => $page]) }}">
                 {{ $page }}
             </a>
             @endif
