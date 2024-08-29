@@ -1,3 +1,3 @@
 <x-app-layout>
-    <livewire:show-posts></livewire:show-posts>
+    <livewire:post-list />
 </x-app-layout>
