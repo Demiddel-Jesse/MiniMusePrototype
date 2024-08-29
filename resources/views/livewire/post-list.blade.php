@@ -7,7 +7,7 @@
 
     @if ($this->hasNextPage())
     <div class="c-gallery__loaders">
-        <div x-intersect="" class="c-gallery__loaders--intersect"></div>
+        <div x-intersect="$wire.loadMore()" class="c-gallery__loaders--intersect"></div>
         <button wire:click="loadMore" class="c-button c-button__secondary c-gallery__loaders--button">Load more</button>
     </div>
     @else

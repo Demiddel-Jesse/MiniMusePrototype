@@ -12,7 +12,7 @@ class PostList extends Component
     public $postIdChunks = [];
     public $page = 1;
     public $maxPage = 1;
-    public $sortDirection = 'asc';
+    public $sortDirection = 'desc';
     public $queryCount = 0;
 
     public function mount()
@@ -40,7 +40,7 @@ class PostList extends Component
     public function prepareChunks()
     {
         $this->postIdChunks = DB::table('posts')
-            ->orderBy('title', $this->sortDirection)
+            ->orderBy('created_at', $this->sortDirection)
             ->pluck('id')
             ->chunk(self::ITEMS_PER_PAGE)
             ->toArray();
