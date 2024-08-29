@@ -25,10 +25,11 @@
 
         padding-left: 2rem;
 
+        transition: all 400ms ease-in;
+
         a {
             display: inline-block;
         }
-        transition: all 400ms ease-in;
     }
 
     &__link {
