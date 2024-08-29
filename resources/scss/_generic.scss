@@ -1,4 +1,5 @@
 @use "./settings/color" as color;
+@use "./tools/tools.media-queries" as mq;
 
 body {
     font-family: "Inter";
@@ -12,4 +13,8 @@ header,
 footer {
     margin: auto;
     max-width: 1280px;
+
+    @include mq.down(hd) {
+        margin: 0 1rem;
+    }
 }

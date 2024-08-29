@@ -1,9 +1,23 @@
+@use "../tools/tools.media-queries" as mq;
+
 .c-gallery {
     &__posts {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
 
-        justify-content: center;
+        grid-template-columns: repeat(1, 1fr);
+
+        @include mq.up(ml) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include mq.up(tl) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include mq.up(ls) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include mq.up(hd) {
+            grid-template-columns: repeat(5, 1fr);
+        }
     }
 
     &__noMore {

@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
  */
 
 Route::get('/', function () {
-    $posts = Post::inRandomOrder()->limit(18)->get();
+    $posts = Post::inRandomOrder()->limit(20)->get();
     return view(
         'home', ['posts' => $posts]
     );
