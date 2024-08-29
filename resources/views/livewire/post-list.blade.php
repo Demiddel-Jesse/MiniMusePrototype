@@ -11,7 +11,7 @@
         <button wire:click="loadMore" class="c-button c-button__secondary c-gallery__loaders--button">Load more</button>
     </div>
     @else
-    <p class="c-gallery__noMore">no more posts...</p>
+    <p class="c-gallery__noMore">no more posts... <a href="#top" class="e-link">back to top?</a></p>
     @endif
     <div wire:loading class="c-gallery__loading">
         Loading more posts...

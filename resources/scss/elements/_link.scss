@@ -1,0 +1,6 @@
+@use "../settings/color" as color;
+
+.e-link {
+    text-decoration: none;
+    color: color.$primary;
+}
