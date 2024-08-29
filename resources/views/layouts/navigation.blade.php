@@ -1,4 +1,4 @@
-<nav x-data="{open:false}" class="c-nav">
+<nav x-data="{open:false}" class="c-nav c-nav--sticky-top">
     <div class="c-nav__primary">
         <div class="c-nav__logo">
             <a href="{{ route('home') }}">

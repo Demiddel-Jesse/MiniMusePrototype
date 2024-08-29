@@ -10,9 +10,13 @@
     width: 100%;
     padding-bottom: 12px;
 
-    margin-top: 1rem;
+    padding-top: 1rem;
 
     border-bottom: 1px solid color.$accent;
+
+    transition: all 250ms;
+
+    background-color: color.$background;
 
     @include mq.down(tl) {
         overflow: hidden;
@@ -176,5 +180,12 @@
             max-height: 1000px; // should be adjusted when mobile height is equal to or higher
             opacity: 1;
         }
+    }
+
+    &--sticky-top {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        width: 100%;
     }
 }
