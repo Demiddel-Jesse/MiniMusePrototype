@@ -8,5 +8,22 @@
 
     &__noMore {
         text-align: center;
+
+        margin: 2rem 0;
+    }
+
+    &__loaders {
+        display: flex;
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        &--intersect {
+            width: 100%;
+        }
+
+        &--button {
+            margin-top: 2rem;
+        }
     }
 }
