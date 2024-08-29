@@ -7,7 +7,9 @@ Home:
 Gallery:
     Filters
     SearchBar
-    ?Infinite scroll
+    Infinite scroll:
+        currently works
+        maybe prepare the html in a different way
 
 Post:
     show numbers(
@@ -17,7 +19,7 @@ Post:
         comments
     )
     PaintBlocks
-    show more for comments
+    show more #context-context-versionsfor comments
 
     Somehow create a download button for users to download all images
 
