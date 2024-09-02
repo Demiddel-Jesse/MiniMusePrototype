@@ -19,7 +19,14 @@
                 @auth
                 <x-dropdown-profile>
                     <x-slot name="trigger">
-                        <img src="{{ Auth::user()->profile_picture }}" alt="profile picture" class="c-profilePicture">
+                        @php
+                        if(is_null(Auth::user()->profile_picture)){
+                        $pfp = asset('images/placeholder.jpg');
+                        } else {
+                        $pfp = Auth::user()->profile_picture;
+                        }
+                        @endphp
+                        <img src="{{ $pfp }}" alt="profile picture" class="c-profilePicture">
                     </x-slot>
                     <x-slot name="content">
                         <x-dropdown-profile-link :href="route('dashboard')" class="">

@@ -4,9 +4,10 @@ if ($comment) {
 $classes ='c-profileSmall c-profileSmall--comment';
 }
 
-$pfp = $user->profile_picture;
-if(is_null($pfp)){
+if(is_null($user->profile_picture)){
 $pfp = asset('images/placeholder.jpg');
+} else {
+$pfp = $user->profile_picture;
 }
 @endphp
 
