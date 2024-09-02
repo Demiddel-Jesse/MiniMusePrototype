@@ -29,8 +29,11 @@
                 {{ $tag->name }}
             </x-tag>
             @endforeach
-
             @endif
+            @endforeach
+
+            @foreach ($post->paintBlocks as $paintBlock)
+            <x-paint-block :paintBlockId="$paintBlock->id" />
             @endforeach
 
             @foreach ($comments as $comment)

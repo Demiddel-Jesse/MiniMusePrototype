@@ -47,6 +47,16 @@ class Post extends Model
     }
 
     /**
+     * Get all of the paintBlocks for the Post
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function paintBlocks(): HasMany
+    {
+        return $this->hasMany(PaintBlock::class);
+    }
+
+    /**
      * Get the user that owns the Post
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Model;
@@ -32,6 +33,16 @@ class PaintBlock extends Model
     public function paint_block_lines(): HasMany
     {
         return $this->hasMany(PaintBlockLine::class);
+    }
+
+    /**
+     * Get the post that owns the PaintBlock
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function post(): BelongsTo
+    {
+        return $this->belongsTo(Post::class);
     }
 
     /**

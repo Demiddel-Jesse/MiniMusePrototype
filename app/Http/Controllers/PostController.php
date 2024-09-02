@@ -6,6 +6,7 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\TagType;
 use App\Models\User;
+use App\View\Components\PaintBlock;
 use Illuminate\Http\Request;
 use DB;
 
