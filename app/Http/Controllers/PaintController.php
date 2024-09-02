@@ -40,7 +40,6 @@ class PaintController extends Controller
         $comparePaints = Paint::with(['paints' => function ($q) {
             $q->orderBy('delta', 'asc');
         }, 'paints.paint_brand'])->find($paint->id);
-
         return view('paint.show', ['paint' => $comparePaints]);
     }
 
