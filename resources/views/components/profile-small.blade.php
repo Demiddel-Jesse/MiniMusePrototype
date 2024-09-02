@@ -11,7 +11,7 @@ $pfp = $user->profile_picture;
 }
 @endphp
 
-<a href="/{{ $user->username }}" class="{{ $classes }}">
+<a href="/users/{{ $user->username }}" class="{{ $classes }}">
     <img src="{{ $pfp }}" alt="{{ $user->username }} Profile Picture">
     <div class="c-profileSmall__content">
         <p class="c-profileSmall__username">{{ $user->username }}</p>
