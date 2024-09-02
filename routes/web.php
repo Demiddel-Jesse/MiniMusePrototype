@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PaintController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Models\Post;
@@ -31,6 +32,8 @@ Route::get('/gallery', [PostController::class, 'index'])->name('gallery');
 Route::get('/gallery/{post}', [PostController::class, 'show']);
 
 Route::get('/users/{user:username}', [ProfileController::class, 'show']);
+
+Route::get('/paints/{paint:name}', [PaintController::class, 'show']);
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
