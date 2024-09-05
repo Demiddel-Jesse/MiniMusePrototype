@@ -25,7 +25,8 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    $posts = Post::where('user_id', auth()->id())->get();
+    return view('dashboard', ['posts' => $posts]);
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/gallery', [PostController::class, 'index'])->name('gallery');
