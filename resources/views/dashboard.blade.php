@@ -10,4 +10,6 @@
 			<x-post-item :post="$post" />
 		@endforeach
 	</section>
+	<br><br>
+	<a class="c-button c-button__primary" href="{{ route("post.create") }}"> Create new</a>
 </x-app-layout>

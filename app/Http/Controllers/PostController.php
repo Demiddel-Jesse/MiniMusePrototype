@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Comment;
+use App\Models\Image;
 use App\Models\Post;
 use App\Models\TagType;
 use App\Models\User;
 use App\View\Components\PaintBlock;
 use Illuminate\Http\Request;
 use DB;
+use Storage;
 
 class PostController extends Controller
 {
@@ -25,7 +27,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $tagTypes = TagType::all();
+        return view('post.create', ['tagTypes' => $tagTypes]);
     }
 
     /**
@@ -33,7 +36,33 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        request()->validate([
+            'title' => ['required', 'min:3'],
+            'description' => ['required'],
+        ]);
+
+        $post = Post::make([
+            'title' => request('title'),
+            'description' => request('description'),
+            'published' => 1,
+            'public' => 1,
+            'user_id' => auth()->id(),
+            'NSFW' => 0
+        ]);
+        $post->save();
+
+        if (request('image')) {
+            $image = request('image');
+            $filename = $image;
+            $imageObject = Image::make(['path' => '/uploads/' . $filename, 'post_id' => $post->id]);
+            app('debugbar')->error($imageObject);
+
+            Storage::put($image, $image);
+
+            $imageObject->save();
+        };
+
+        return redirect('/gallery');
     }
 
     /**

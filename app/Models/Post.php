@@ -21,7 +21,7 @@ class Post extends Model
         'title',
         'description',
         'published',
-        'private',
+        'public',
         'user_id',
         'NSFW',
     ];

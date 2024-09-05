@@ -30,6 +30,8 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/gallery', [PostController::class, 'index'])->name('gallery');
+Route::get('/gallery/create', [PostController::class, 'create'])->name('post.create');
+Route::post('/gallery/create', [PostController::class, 'store'])->name('post.save');
 Route::get('/gallery/{post}', [PostController::class, 'show']);
 
 Route::get('/users/{user:username}', [ProfileController::class, 'show']);
