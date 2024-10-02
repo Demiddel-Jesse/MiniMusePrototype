@@ -1,0 +1,27 @@
+@use "../settings/color" as color;
+
+.c-post {
+    display: flex;
+    flex-wrap: nowrap;
+
+    justify-content: center;
+
+    &__images {
+        width: 60%;
+        margin: 0 0 0 2rem;
+    }
+
+    &__imgWrapper {
+        max-width: 100%;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    &__text {
+        max-width: 40%;
+
+        margin: 0 2rem;
+    }
+}

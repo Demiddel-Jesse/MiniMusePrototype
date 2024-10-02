@@ -1,0 +1,88 @@
+@use "../tools/tools.media-queries" as mq;
+@use "../settings/color" as color;
+
+.c-paginator {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    &__content {
+        flex: 1 1 0%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        width: fit-content;
+    }
+
+    &__arrows {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__arrowLeft {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+
+        cursor: pointer;
+
+        &--firstPage {
+            @extend .c-paginator__arrowLeft;
+
+            cursor: default;
+        }
+
+        > span {
+            width: fit-content;
+            height: fit-content;
+        }
+
+        svg {
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+
+    &__arrowRight {
+        @extend .c-paginator__arrowLeft;
+
+        &--lastPage {
+            @extend .c-paginator__arrowLeft--firstPage;
+        }
+    }
+
+    &__separator {
+        @extend .c-paginator__link;
+    }
+
+    &__link {
+        position: relative;
+
+        display: inline-flex;
+        padding: 1rem 0.5rem;
+
+        text-decoration: none;
+
+        cursor: pointer;
+
+        &--currentPage {
+            @extend .c-paginator__link;
+
+            color: color.$primary;
+
+            cursor: default;
+        }
+    }
+
+    &__counter {
+        // padding: 0 0.5rem;
+
+        margin: 0 1rem;
+    }
+}

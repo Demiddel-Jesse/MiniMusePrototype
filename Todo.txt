@@ -1,0 +1,37 @@
+Footer:
+    create
+
+Home:
+    create a banner at the top
+
+Gallery:
+    Filters
+    SearchBar
+    Infinite scroll:
+        currently works
+        maybe prepare the html in a different way
+
+Post:
+    show numbers(
+        views
+        likes
+        saves
+        comments
+    )
+    PaintBlocks
+    show more #context-context-versionsfor comments
+
+    Somehow create a download button for users to download all images
+
+    ?transition to carousel for images
+
+    mobile:
+        instead of images all on scroll make carousel or sideways scroll
+
+Profile:
+    show all posts by user
+    show all collections by user
+
+contact page:
+    create
+

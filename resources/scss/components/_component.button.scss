@@ -1,0 +1,54 @@
+@use "../settings/color" as color;
+
+.c-button {
+    padding: 12px 24px;
+
+    border-radius: 10px;
+
+    transition: all 250ms ease-out;
+
+    text-decoration: none;
+    display: inline-block;
+    color: color.$text;
+
+    &__primary {
+        background-color: color.$primary;
+        border: none;
+
+        &:hover {
+            background-color: color.$primary-hover;
+        }
+
+        &:active {
+            background-color: color.$primary-pressed;
+        }
+
+        &:disabled {
+            background-color: color.$primary-disabled;
+        }
+    }
+
+    &__secondary {
+        background-color: transparent;
+        border: none;
+
+        outline: 2px solid color.$primary;
+        outline-offset: -2px;
+
+        &:hover {
+            outline-color: color.$primary-hover;
+        }
+
+        &:active {
+            outline-color: color.$primary-pressed;
+        }
+
+        &:disabled {
+            outline-color: color.$primary-disabled;
+        }
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}

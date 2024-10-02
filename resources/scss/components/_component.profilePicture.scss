@@ -1,0 +1,9 @@
+@use "../settings/color" as color;
+
+.c-profilePicture {
+    border-radius: 50%;
+    outline: 2px solid color.$accent;
+    outline-offset: -1px;
+
+    max-width: 75px;
+}

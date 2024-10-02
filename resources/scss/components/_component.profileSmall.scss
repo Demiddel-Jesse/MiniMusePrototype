@@ -1,0 +1,36 @@
+@use "../settings/color" as color;
+
+.c-profileSmall {
+    display: flex;
+    align-items: center;
+
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: color.$text;
+
+    img {
+        width: 75px;
+        height: 75px;
+        border-radius: 50%;
+    }
+
+    p {
+        height: fit-content;
+        margin: 0.25rem 0;
+    }
+
+    &--comment {
+        img {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__content {
+        margin-left: 1rem;
+    }
+
+    &__username {
+        color: color.$primary;
+    }
+}

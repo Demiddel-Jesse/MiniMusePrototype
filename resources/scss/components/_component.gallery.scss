@@ -1,0 +1,49 @@
+@use "../tools/tools.media-queries" as mq;
+
+.c-gallery {
+    &__posts {
+        display: grid;
+
+        grid-template-columns: repeat(1, 1fr);
+
+        @include mq.up(ml) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @include mq.up(tl) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include mq.up(ls) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        @include mq.up(hd) {
+            grid-template-columns: repeat(5, 1fr);
+        }
+    }
+
+    &__noMore {
+        text-align: center;
+
+        margin: 2rem 0;
+    }
+
+    &__loaders {
+        display: flex;
+        justify-content: center;
+
+        flex-wrap: wrap;
+
+        &--intersect {
+            width: 100%;
+        }
+
+        &--button {
+            margin-top: 2rem;
+        }
+    }
+
+    &__loading {
+        text-align: center;
+
+        margin: 2rem 0;
+    }
+}
